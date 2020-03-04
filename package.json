@@ -1,0 +1,35 @@
+{
+  "name": "eslint-config-alanramsay-react",
+  "version": "1.0.0",
+  "description": "ESLint config for React projects based on eslint-config-alanramsay-node",
+  "main": ".eslintrc.js",
+  "author": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "update-dependencies": "npx npm-check-updates --upgrade && npm i"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-fix"
+    }
+  },
+  "peerDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "dependencies": {
+    "acorn": "^7.1.0",
+    "eslint-config-alanramsay-node": "1.0.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.0.9",
+    "npm-check-updates": "^4.0.1"
+  }
+}
