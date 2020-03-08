@@ -1,31 +1,53 @@
-name: Node.js Package
+name: Publish New Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master
 
 jobs:
   build:
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 13
-      - run: npm ci
-      #- run: npm test
+      - run: yarn install --frozen-lockfile
 
   publish-gpr:
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Check Package Version
+        id: check
+        uses: EndBug/version-check@v1.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Version Update Detected
+        if: steps.check.outputs.changed == 'true'
+        run: 'echo "Version change found! New version: ${{ steps.check.outputs.version }} (${{ steps.check.outputs.type }})"'
+
+      - name: Setup Dependencies
+        if: steps.check.outputs.changed == 'true'
+        uses: actions/setup-node@v1
         with:
           node-version: 13
           registry-url: https://npm.pkg.github.com/
           scope: '@alanramsay'
-      - run: npm ci
-      - run: npm publish
+
+      - name: Publish to GPR
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          yarn install --frozen-lockfile
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

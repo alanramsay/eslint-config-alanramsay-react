@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  lint:
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Lint
+      run: |
+        yarn install --frozen-lockfile
+        yarn lint
