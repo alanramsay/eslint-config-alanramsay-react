@@ -19,6 +19,6 @@ jobs:
           scope: '@alanramsay'
       - name: npm install and Lint
         run: |
-          cat .npmrc
+          cat ${NPM_CONFIG_USERCONFIG}
           npm ci --verbose
           npm run lint
