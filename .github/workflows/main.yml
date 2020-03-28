@@ -18,7 +18,7 @@ jobs:
           scope: '@alanramsay'
       - name: npm install and Lint
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          _authToken: ${{secrets.GITHUB_TOKEN}}
         run: |
           yarn install --frozen-lockfile
           yarn lint
