@@ -22,3 +22,5 @@ jobs:
           cat ${NPM_CONFIG_USERCONFIG}
           npm ci --verbose
           npm run lint
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
