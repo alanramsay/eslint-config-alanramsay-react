@@ -17,5 +17,5 @@ jobs:
           scope: '@alanramsay'
       - name: npm install and Lint
         run: |
-          yarn install --frozen-lockfile
-          yarn lint
+          npm ci
+          npm run lint
