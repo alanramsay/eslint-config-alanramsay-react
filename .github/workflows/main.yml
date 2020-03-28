@@ -6,6 +6,8 @@ jobs:
   lint:
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      _authToken: ${{secrets.GITHUB_TOKEN}}
+      NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,5 +19,6 @@ jobs:
           scope: '@alanramsay'
       - name: npm install and Lint
         run: |
-          npm ci
+          cat .npmrc
+          npm ci --verbose
           npm run lint
