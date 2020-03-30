@@ -16,6 +16,8 @@ jobs:
         with:
           node-version: 13
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PAT_FOR_ACCESS}}
 
   publish-gpr:
     env:
@@ -43,6 +45,8 @@ jobs:
           node-version: 13
           registry-url: https://npm.pkg.github.com/
           scope: '@alanramsay'
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.PAT_FOR_ACCESS}}  
 
       - name: Publish to GPR
         if: steps.check.outputs.changed == 'true'
@@ -50,4 +54,4 @@ jobs:
           npm  ci
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.PAT_FOR_ACCESS}}
