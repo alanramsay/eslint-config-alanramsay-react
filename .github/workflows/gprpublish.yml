@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      GITHUB_TOKEN: ${{secrets.PAT_FOR_ACCESS}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
 
   publish-gpr:
     env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      GITHUB_TOKEN: ${{secrets.PAT_FOR_ACCESS}}
     needs: build
     runs-on: ubuntu-latest
     steps:
