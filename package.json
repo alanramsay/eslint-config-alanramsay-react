@@ -18,12 +18,12 @@
     "eslint": "^6.8.0"
   },
   "dependencies": {
-    "@alanramsay/eslint-config-alanramsay-node": "1.1.0",
+    "@alanramsay/eslint-config-alanramsay-node": "1.1.1",
     "acorn": "^7.1.0",
     "eslint-plugin-jest": "23.6.0",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.17.0",
-    "eslint-plugin-react-hooks": "2.3.0"
+    "eslint-plugin-react-hooks": "3.0.0"
   },
   "devDependencies": {
     "eslint": "6.8.0",

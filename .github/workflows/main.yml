@@ -4,13 +4,20 @@ on: [push]
 
 jobs:
   lint:
-    env:
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    env:	
+      GITHUB_TOKEN: ${{secrets.PAT_FOR_ACCESS}}
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Lint
-      run: |
-        yarn install --frozen-lockfile
-        yarn lint
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 13
+          registry-url: https://npm.pkg.github.com/
+          scope: '@alanramsay'
+      - name: npm install and Lint
+        run: |
+          npm ci
+          npm run lint
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PAT_FOR_ACCESS }}

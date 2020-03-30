@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 13
-      - run: yarn install --frozen-lockfile
+      - run: npm ci
 
   publish-gpr:
     env:
@@ -47,7 +47,7 @@ jobs:
       - name: Publish to GPR
         if: steps.check.outputs.changed == 'true'
         run: |
-          yarn install --frozen-lockfile
+          npm  ci
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
