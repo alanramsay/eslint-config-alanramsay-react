@@ -4,10 +4,6 @@ on: [push]
 
 jobs:
   lint:
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      _authToken: ${{ secrets.GITHUB_TOKEN }}
-      PAT_FOR_ACCESS: ${{ secrets.PAT_FOR_ACCESS }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,9 +15,7 @@ jobs:
           scope: '@alanramsay'
       - name: npm install and Lint
         run: |
-          env
-          cat ${NPM_CONFIG_USERCONFIG}
-          npm ci --verbose
+          npm ci
           npm run lint
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PAT_FOR_ACCESS }}
