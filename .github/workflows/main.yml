@@ -7,7 +7,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       _authToken: ${{ secrets.GITHUB_TOKEN }}
-      PAT_ACCESS: ${{ secrets.PAT_ACCESS }}
+      PAT_FOR_ACCESS: ${{ secrets.PAT_FOR_ACCESS }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,4 +24,4 @@ jobs:
           npm ci --verbose
           npm run lint
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PAT_ACCESS }}
+          NODE_AUTH_TOKEN: ${{ secrets.PAT_FOR_ACCESS }}
