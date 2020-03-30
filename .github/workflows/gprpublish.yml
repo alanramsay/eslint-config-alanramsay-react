@@ -32,7 +32,7 @@ jobs:
         id: check
         uses: EndBug/version-check@v1.1.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_FOR_ACCESS }}
 
       - name: Version Update Detected
         if: steps.check.outputs.changed == 'true'
