@@ -1,10 +1,10 @@
-# @alanramsay/eslint-config-alanramsay-react
+# eslint-config-alanramsay-react
 
 ESLint config based on eslint-config-react-app and prettier.
 
 ## How to install
 
-- Run `npx install-peerdeps @alanramsay/eslint-config-alanramsay-react --dev`
+- Run `npx install-peerdeps eslint-config-alanramsay-react --dev`
 
 ## How to configure
 

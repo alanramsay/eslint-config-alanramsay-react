@@ -1,6 +1,6 @@
 module.exports = {
   extends: [
-    '@alanramsay/eslint-config-alanramsay-node',
+    'eslint-config-alanramsay-node',
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended'
