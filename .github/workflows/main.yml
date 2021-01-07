@@ -5,19 +5,17 @@ on: [push]
 jobs:
   lint:
     env:	
-      GITHUB_TOKEN: ${{secrets.PAT_FOR_ACCESS}}
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          node-version: 13
-          registry-url: https://npm.pkg.github.com/
-          scope: '@alanramsay'
+          node-version: 15
       - name: npm install and Lint
         run: |
           npm ci
           npm run lint
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.PAT_FOR_ACCESS }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

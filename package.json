@@ -1,7 +1,7 @@
 {
-  "name": "@alanramsay/eslint-config-alanramsay-react",
-  "version": "1.1.1",
-  "description": "ESLint config for React projects based on @alanramsay/eslint-config-alanramsay-node",
+  "name": "eslint-config-alanramsay-react",
+  "version": "1.2.0",
+  "description": "ESLint config for React projects based on eslint-config-alanramsay-node",
   "main": ".eslintrc.js",
   "author": "",
   "license": "UNLICENSED",
@@ -18,8 +18,8 @@
     "eslint": "^6.8.0"
   },
   "dependencies": {
-    "@alanramsay/eslint-config-alanramsay-node": "1.1.1",
     "acorn": "^7.1.0",
+    "eslint-config-alanramsay-node": "1.3.0",
     "eslint-plugin-jest": "23.8.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
     "eslint-plugin-react": "7.19.0",
@@ -27,7 +27,9 @@
   },
   "devDependencies": {
     "eslint": "6.8.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-standard": "4.0.1",
-    "husky": "4.2.3"
+    "husky": "4.2.3",
+    "prettier": "^2.2.1"
   }
 }
