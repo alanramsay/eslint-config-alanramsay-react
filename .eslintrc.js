@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     'eslint-config-alanramsay-node',
+    'plugin:react/jsx-runtime',
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended'
