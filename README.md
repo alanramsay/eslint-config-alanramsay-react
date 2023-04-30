@@ -12,7 +12,7 @@ ESLint config based on eslint-config-react-app and prettier.
 
 ```js
 module.exports = {
-  extends: ['eslint-config-alanramsay-react']
+  extends: ['eslint-config-alanramsay-react', 'plugin:react/jsx-runtime']
 };
 ```
 
